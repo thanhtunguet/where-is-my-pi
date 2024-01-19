@@ -3,7 +3,7 @@ name: Build and Distribute Executables on Windows
 on: [push, pull_request]
 
 jobs:
-  build:
+  build-windows:
     runs-on: windows-latest
 
     steps:
