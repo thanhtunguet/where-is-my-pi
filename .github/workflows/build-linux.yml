@@ -22,7 +22,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: executables
+        name: linux-executables
         path: |
           mypi
           wheremypi
