@@ -1,0 +1,28 @@
+name: Build and Distribute Executables
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout code
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y g++
+
+    - name: Build server
+      run: g++ -o mypi server.cpp
+
+    - name: Build client
+      run: g++ -o wheremypi client.cpp
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: executables
+        path: |
+          mypi
+          wheremypi
