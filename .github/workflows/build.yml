@@ -1,8 +1,31 @@
-name: Build and Distribute Executables on Windows
+name: Build and Distribute Executables on Linux
 
 on: [push, pull_request]
 
 jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout code
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y g++
+
+    - name: Build server
+      run: g++ -o mypi server.cpp
+
+    - name: Build client
+      run: g++ -o wheremypi client.cpp
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-executables
+        path: |
+          mypi
+          wheremypi
   build-windows:
     runs-on: windows-latest
 
