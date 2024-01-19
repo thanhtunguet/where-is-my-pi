@@ -10,18 +10,6 @@ Our solution involves two components: a UDP server running on the Raspberry Pi a
 
 The server program is designed to run on the Raspberry Pi. It continuously listens for incoming UDP messages. When it receives a specific message (in our case, "wheremypi"), it responds with the IP address of the Pi's `eth0` network interface.
 
-Here's the server program in C++:### How to Find Your Raspberry Pi Address When Connected to a DHCP Network
-
-In environments where network devices receive dynamic IP addresses via DHCP (Dynamic Host Configuration Protocol), locating a specific device like a Raspberry Pi can be a challenge. This is particularly true in scenarios where you don't have access to the network router or admin interface to check connected devices. One practical solution is to set up a UDP broadcast system consisting of a client and a server, allowing your Raspberry Pi to respond with its IP address when queried. In this article, we'll walk through creating such a system using C++.
-
-## The Concept: UDP Broadcast System
-
-Our solution involves two components: a UDP server running on the Raspberry Pi and a UDP client that can run on any computer in the same network. The client sends a broadcast message to the network, and the server, upon receiving this message, responds with its IP address.
-
-### Building the UDP Server for Raspberry Pi
-
-The server program is designed to run on the Raspberry Pi. It continuously listens for incoming UDP messages. When it receives a specific message (in our case, "wheremypi"), it responds with the IP address of the Pi's `eth0` network interface.
-
 Here's the server program in C++:
 
 ```cpp
